@@ -6,6 +6,7 @@ function install_essentials() {
   apt-get install -y --no-install-recommends \
       ca-certificates \
       curl \
+      wget \
       jq \
       gnupg \
       tar \
