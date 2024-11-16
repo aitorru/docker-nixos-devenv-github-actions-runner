@@ -22,5 +22,7 @@ RUN chmod +x /actions-runner/install_actions.sh \
 COPY token.sh entrypoint.sh app_token.sh /
 RUN chmod +x /token.sh /entrypoint.sh /app_token.sh
 
+RUN sh <(curl -L https://nixos.org/nix/install) --daemon && nix-env -iA devenv -f https://github.com/NixOS/nixpkgs/tarball/nixpkgs-unstable
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["./bin/Runner.Listener", "run", "--startuptype", "service"]
